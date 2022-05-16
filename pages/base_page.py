@@ -3,7 +3,9 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import BasePageLocators
+from .locators import ProductPageLocators
+from .locators import MainPageLocators
+
 
 class BasePage():
     def __init__(self, browser, url):

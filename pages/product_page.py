@@ -2,8 +2,8 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from base_page import BasePage
-from locators import ProductPageLocators
+from .base_page import BasePage
+from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
@@ -20,10 +20,10 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return None
 
-    def check_item_name(self):
-        result = self.get_success_message_after_add_product_to_basket()
-        product = self.get_product_name()
-        assert result == product, 'Product does not match with expected'
+    #def check_item_name(self):
+        #result = self.get_success_message_after_add_product_to_basket()
+        #product = self.get_product_name()
+        #assert result == product, 'Product does not match with expected'
 
     def get_success_message_after_add_product_to_basket(self):
         WebDriverWait(self.browser, 20).until(expected_conditions.presence_of_element_located(ProductPageLocators.SUCCESS_MESSAGE))
@@ -39,12 +39,12 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return None
 
-    def get_price_from_message(self):
-        WebDriverWait(self.browser, 20).until(expected_conditions.presence_of_element_located(ProductPageLocators.PRICE_MESSAGE))
-        try:
-            return str(self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text)
-        except NoSuchElementException:
-            return None
+    #def get_price_from_message(self):
+        #WebDriverWait(self.browser, 20).until(expected_conditions.presence_of_element_located(ProductPageLocators.PRICE_MESSAGE))
+        #try:
+            #return str(self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text)
+        #except NoSuchElementException:
+            #return None
 
     def check_price(self):
         price = self.get_price()
