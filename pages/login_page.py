@@ -22,3 +22,9 @@ class LoginPage(BasePage):
         # реализуйте проверку, что есть форма регистрации на странице
         result = self.is_element_present(*LoginPageLocators.REG_FORM)
         assert result
+        
+    def go_to_login_page(self):
+       link = self.browser.find_element_by_css_selector("#login_link")
+       link.click()
+       alert = self.browser.switch_to.alert
+       alert.accept()    
