@@ -1,6 +1,11 @@
 from selenium.webdriver.common.by import By
 
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link")
+
+
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     
@@ -29,5 +34,4 @@ class ProductPageLocators():
     BASKET_BUTTON = (By.CSS_SELECTOR, 'div.basket-mini span.btn-group a.btn')
     EMPTY_BASKET = (By.ID, "content_inner")
     BASKET_EMPTY_MESSAGE = (By.XPATH, '//div[@id="content_inner"]//p[contains(text(),"Your basket is empty.")]')
-    
     

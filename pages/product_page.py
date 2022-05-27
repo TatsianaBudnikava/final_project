@@ -38,25 +38,16 @@ class ProductPage(BasePage):
         price_message = self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
         assert price in price_message, "No product price in the message"
+        
 
     def should_not_be_success_message(self):
         """Ожидаем, что сообщение о добавлении не появится"""
-
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
-
+        
+    def should_be_disappeared_success_message(self):
+        """Ожидаем, что сообщение о добавлении исчезнет"""
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should be disappeared"
    
-    #def check_item_name(self):
-        #result = self.get_success_message_after_add_product_to_basket()
-        #product = self.get_product_name()
-        #assert result == product, 'Product does not match with expected'
-
-    def get_success_message_after_add_product_to_basket(self):
-        WebDriverWait(self.browser, 20).until(expected_conditions.presence_of_element_located(ProductPageLocators.SUCCESS_MESSAGE))
-        try:
-            return str(self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text)
-        except NoSuchElementException:
-            return None
-
 
     def get_price(self):
         try:
@@ -64,13 +55,7 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return None
 
-    #def get_price_from_message(self):
-        #WebDriverWait(self.browser, 20).until(expected_conditions.presence_of_element_located(ProductPageLocators.PRICE_MESSAGE))
-        #try:
-            #return str(self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text)
-        #except NoSuchElementException:
-            #return None
-
+   
     def check_price(self):
         price = self.get_price()
         price_message = self.get_price_from_message()
