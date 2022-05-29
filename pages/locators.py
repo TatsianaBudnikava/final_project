@@ -33,5 +33,8 @@ class ProductPageLocators():
     PRICE_MESSAGE = (By.CSS_SELECTOR, '.alert-info .alertinner strong')
     BASKET_BUTTON = (By.CSS_SELECTOR, 'div.basket-mini span.btn-group a.btn')
     EMPTY_BASKET = (By.ID, "content_inner")
-    BASKET_EMPTY_MESSAGE = (By.XPATH, '//div[@id="content_inner"]//p[contains(text(),"Your basket is empty.")]')
+    BASKET_EMPTY_MESSAGE = (By.XPATH, '//div[@id="content_inner"]//p[contains(text(), "Your basket is empty.")]')
+    
+class BasketPageLocators():
+    BASKET_CONTENT = (By.CSS_SELECTOR, "#content_inner p")    
     

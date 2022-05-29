@@ -23,7 +23,6 @@ class ProductPage(BasePage):
             
     def should_be_message_about_adding(self):
         """Проверяем сообщение о добавлении товара"""
-
         assert self.is_element_present(*ProductPageLocators.ITEM_NAME), ("Product name is not presented")
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), ("Message about adding is not presented")
         product_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text + " has been added to your basket."
@@ -32,7 +31,6 @@ class ProductPage(BasePage):
 
     def should_be_message_basket_total(self):
         """Проверяем цену товара добавленную в корзину"""
-
         assert self.is_element_present(*ProductPageLocators.PRICE_MESSAGE), ("Message basket total is not presented")
         assert self.is_element_present(*ProductPageLocators.PRICE), ("Product price is not presented") 
         price_message = self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text
@@ -60,3 +58,8 @@ class ProductPage(BasePage):
         price = self.get_price()
         price_message = self.get_price_from_message()
         assert price == price_message, 'Price does not match with expected'
+        
+        
+    def go_to_basket_page(self):  
+        basket_link = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        basket_link.click()      

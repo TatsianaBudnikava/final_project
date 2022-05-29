@@ -1,5 +1,6 @@
 from .main_page import MainPage
 from .login_page import LoginPage
+from .pages.product_page import ProductPage
 import pytest
 
 class TestLoginFromMainPage():
@@ -21,4 +22,3 @@ class TestLoginFromMainPage():
     
     
     
-
