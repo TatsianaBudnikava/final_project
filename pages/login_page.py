@@ -28,3 +28,9 @@ class LoginPage(BasePage):
        link.click()
        alert = self.browser.switch_to.alert
        alert.accept()    
+       
+    def register_new_user(self, email, password):  
+        self.browser.find_element(*LoginPageLocators.REG_email).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_password).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_password_repeating).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_SUBMIT_btn).click()    

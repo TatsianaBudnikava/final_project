@@ -70,5 +70,10 @@ class BasePage():
           
 
     def should_be_basket_empty_message(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_EMPTY_MESSAGE), "Your basket is empty."        
+        assert self.is_element_present(*ProductPageLocators.BASKET_EMPTY_MESSAGE), "Your basket is empty."  
+
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"        
  

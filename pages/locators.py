@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators():
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link")
 
@@ -21,7 +22,7 @@ class LoginPageLocators():
     REG_email = (By.ID, "id_registration-email")
     REG_password = (By.ID, "id_registration-password1")
     REG_password_repeating = (By.ID, "id_registration-password2")
-    SUBMIT_button = (By.NAME, "registration_submit")  
+    REG_SUBMIT_btn = (By.NAME, "registration_submit")  
     
     
 class ProductPageLocators():
